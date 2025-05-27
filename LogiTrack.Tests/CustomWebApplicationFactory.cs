@@ -1,12 +1,11 @@
 using System;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 using LogiTrack.Models;
+using Microsoft.AspNetCore.Identity;
 using System.Linq;
-using System.Collections.Generic;
 
 namespace LogiTrack.Tests
 {
@@ -16,37 +15,38 @@ namespace LogiTrack.Tests
         {
             builder.ConfigureServices(services =>
             {
-                // Remove the existing context registration
-                var descriptor = services.SingleOrDefault(
-                    d => d.ServiceType == typeof(DbContextOptions<LogiTrackContext>));
-                if (descriptor != null)
-                    services.Remove(descriptor);
-
-                // Set environment variable for test DB
-                Environment.SetEnvironmentVariable("ASPNETCORE_TEST_DB", "TestLogiTrack.db");
-
-                services.AddDbContext<LogiTrackContext>(options =>
-                {
-                    options.UseSqlite("Data Source=TestLogiTrack.db");
-                });
+                // Do NOT register or remove DbContext here.
+                // Only use the context to ensure database is created and seed roles.
 
                 var sp = services.BuildServiceProvider();
+
                 using (var scope = sp.CreateScope())
                 {
-                    var db = scope.ServiceProvider.GetRequiredService<LogiTrackContext>();
-                    db.Database.EnsureDeleted();
-                    db.Database.Migrate();
+                    var scopedServices = scope.ServiceProvider;
+                    var db = scopedServices.GetRequiredService<LogiTrackContext>();
+                    var userManager = scopedServices.GetRequiredService<UserManager<ApplicationUser>>();
+                    var roleManager = scopedServices.GetRequiredService<RoleManager<IdentityRole>>();
+
+                    db.Database.EnsureCreated();
+
+                    // Only call Migrate if using a relational provider
+                    var relational = db.Database.ProviderName != null &&
+                                     db.Database.IsRelational();
+                    if (relational)
+                    {
+                        db.Database.Migrate();
+                    }
+
+                    // Seed roles if needed
+                    if (!roleManager.Roles.Any(r => r.Name == "Manager"))
+                    {
+                        roleManager.CreateAsync(new IdentityRole("Manager")).Wait();
+                    }
+                    if (!roleManager.Roles.Any(r => r.Name == "User"))
+                    {
+                        roleManager.CreateAsync(new IdentityRole("User")).Wait();
+                    }
                 }
-            })
-            .ConfigureAppConfiguration((context, configBuilder) =>
-            {
-                var testConfig = new Dictionary<string, string>
-                {
-                    { "Jwt:Key", "supersecretkey1234supersecretkey1234" }, // 32 chars, 256 bits
-                    { "Jwt:Issuer", "logitrack-test" },
-                    { "Jwt:Audience", "logitrack-test" }
-                };
-                configBuilder.AddInMemoryCollection(testConfig);
             });
         }
     }

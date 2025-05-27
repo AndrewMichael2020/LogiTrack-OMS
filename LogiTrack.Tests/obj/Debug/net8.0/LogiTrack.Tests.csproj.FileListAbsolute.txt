@@ -454,3 +454,5 @@
 /workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/System.Text.Json.dll
 /workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/runtimes/linux-musl-s390x/native/libe_sqlite3.so
 /workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/DotNetEnv.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/Sprache.dll

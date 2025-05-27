@@ -1,0 +1,2 @@
+# Ignore the .env file to prevent committing sensitive information
+.env

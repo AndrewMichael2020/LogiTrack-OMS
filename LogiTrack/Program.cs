@@ -4,6 +4,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using DotNetEnv;
+
+// Add this at the top if you want to load .env variables automatically
+try
+{
+    DotNetEnv.Env.Load();
+}
+catch { /* Ignore if DotNetEnv is not installed or .env not found */ }
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,10 +30,22 @@ builder.Services.AddSwaggerGen();
 // Enable in-memory caching
 builder.Services.AddMemoryCache();
 
-// Force the use of the test database if running under test
-var dbPath = Environment.GetEnvironmentVariable("ASPNETCORE_TEST_DB") ?? "logitrack.db";
-builder.Services.AddDbContext<LogiTrackContext>(options =>
-    options.UseSqlite($"Data Source={dbPath}"));
+// Always register the production provider here
+// Remove any previous AddDbContext<LogiTrackContext> registration above this block
+
+// Only register the provider once, based on environment variable
+var useInMemory = Environment.GetEnvironmentVariable("USE_INMEMORY_DB") == "1";
+if (useInMemory)
+{
+    builder.Services.AddDbContext<LogiTrack.Models.LogiTrackContext>(options =>
+        options.UseInMemoryDatabase("TestDb"));
+}
+else
+{
+    var dbPath = Environment.GetEnvironmentVariable("ASPNETCORE_TEST_DB") ?? "logitrack.db";
+    builder.Services.AddDbContext<LogiTrack.Models.LogiTrackContext>(options =>
+        options.UseSqlite($"Data Source={dbPath}"));
+}
 
 // Add Identity services
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -47,7 +67,9 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         ValidIssuer = builder.Configuration["Jwt:Issuer"] ?? "logitrack",
         ValidAudience = builder.Configuration["Jwt:Audience"] ?? "logitrack",
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"] ?? "supersecretkey"))
+        // Use a fallback key of at least 16 characters (128 bits)
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+            builder.Configuration["Jwt:Key"] ?? "logitrack_super_secret_key!"))
     };
 });
 

@@ -27,6 +27,7 @@ namespace LogiTrack.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<InventoryItem>>> GetInventoryItems()
         {
+            // Caching strategy: Use IMemoryCache with longer expiration and rehydration logic
             if (!_cache.TryGetValue("inventoryItems", out List<InventoryItem> inventoryItems))
             {
                 inventoryItems = await _context.InventoryItems
@@ -34,7 +35,8 @@ namespace LogiTrack.Controllers
                     .ToListAsync();
 
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
-                    .SetSlidingExpiration(System.TimeSpan.FromSeconds(30));
+                    .SetSlidingExpiration(System.TimeSpan.FromMinutes(10))
+                    .SetAbsoluteExpiration(System.TimeSpan.FromHours(1)); // Absolute expiration for safety
                 _cache.Set("inventoryItems", inventoryItems, cacheEntryOptions);
             }
 
@@ -47,7 +49,14 @@ namespace LogiTrack.Controllers
         {
             _context.InventoryItems.Add(inventoryItem);
             await _context.SaveChangesAsync();
-            _cache.Remove("inventoryItems");
+
+            // Rehydrate cache after data change
+            var inventoryItems = await _context.InventoryItems
+                .AsNoTracking()
+                .ToListAsync();
+            _cache.Set("inventoryItems", inventoryItems, new MemoryCacheEntryOptions()
+                .SetSlidingExpiration(System.TimeSpan.FromMinutes(10)));
+
             return CreatedAtAction(nameof(GetInventoryItems), new { id = inventoryItem.Id }, inventoryItem);
         }
 
@@ -58,18 +67,22 @@ namespace LogiTrack.Controllers
             if (id != inventoryItem.Id)
                 return BadRequest();
 
-            // Fix: Always update the existing tracked entity, never attach the incoming one
             var existingEntity = await _context.InventoryItems.FindAsync(id);
             if (existingEntity == null)
                 return NotFound();
 
-            // Update only the properties
             _context.Entry(existingEntity).CurrentValues.SetValues(inventoryItem);
 
             try
             {
                 await _context.SaveChangesAsync();
-                _cache.Remove("inventoryItems");
+
+                // Rehydrate cache after data change
+                var inventoryItems = await _context.InventoryItems
+                    .AsNoTracking()
+                    .ToListAsync();
+                _cache.Set("inventoryItems", inventoryItems, new MemoryCacheEntryOptions()
+                    .SetSlidingExpiration(System.TimeSpan.FromMinutes(10)));
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -78,6 +91,7 @@ namespace LogiTrack.Controllers
                 else
                     throw;
             }
+
             return NoContent();
         }
 
@@ -92,7 +106,14 @@ namespace LogiTrack.Controllers
 
             _context.InventoryItems.Remove(item);
             await _context.SaveChangesAsync();
-            _cache.Remove("inventoryItems");
+
+            // Rehydrate cache after data change
+            var inventoryItems = await _context.InventoryItems
+                .AsNoTracking()
+                .ToListAsync();
+            _cache.Set("inventoryItems", inventoryItems, new MemoryCacheEntryOptions()
+                .SetSlidingExpiration(System.TimeSpan.FromMinutes(10)));
+
             return NoContent();
         }
     }
