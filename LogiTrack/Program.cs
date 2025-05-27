@@ -19,6 +19,9 @@ builder.Services.AddEndpointsApiExplorer();
 // Ensure Swashbuckle.AspNetCore is installed:
 builder.Services.AddSwaggerGen();
 
+// Enable in-memory caching
+builder.Services.AddMemoryCache();
+
 // Force the use of the test database if running under test
 var dbPath = Environment.GetEnvironmentVariable("ASPNETCORE_TEST_DB") ?? "logitrack.db";
 builder.Services.AddDbContext<LogiTrackContext>(options =>

@@ -23,8 +23,8 @@ namespace LogiTrack.Tests
         [Fact]
         public async Task Access_Orders_Without_Auth_Fails()
         {
-            // Consider using HttpCompletionOption.ResponseHeadersRead for faster response when only status is needed
-            var response = await _client.GetAsync("/api/orders", HttpCompletionOption.ResponseHeadersRead);
+            var response = await _client.GetAsync("/api/orders");
+            // Accept both Unauthorized and NotFound as valid outcomes for Codespaces/test host
             Assert.Contains(response.StatusCode.ToString(), new[] { "Unauthorized", "NotFound" });
         }
 
@@ -32,25 +32,24 @@ namespace LogiTrack.Tests
         [Fact]
         public async Task Register_Login_And_Access_Orders_Succeeds()
         {
-            // Use shared StringContent instances for repeated payloads if possible (not critical here, but can help in larger tests)
-            var regPayload = new
+            // Register
+            var regContent = new StringContent(JsonConvert.SerializeObject(new
             {
                 username = "integrationuser",
                 email = "integration@example.com",
+                // Use a password that meets your policy: at least 8 chars, 1 digit, 1 uppercase, 1 symbol
                 password = "Password1234!"
-            };
-            var regContent = new StringContent(JsonConvert.SerializeObject(regPayload), Encoding.UTF8, "application/json");
+            }), Encoding.UTF8, "application/json");
             var regResp = await _client.PostAsync("/api/auth/register", regContent);
             var regBody = await regResp.Content.ReadAsStringAsync();
             Assert.True(regResp.IsSuccessStatusCode, $"Registration failed: {regBody}");
 
             // Login
-            var loginPayload = new
+            var loginContent = new StringContent(JsonConvert.SerializeObject(new
             {
                 username = "integrationuser",
                 password = "Password1234!"
-            };
-            var loginContent = new StringContent(JsonConvert.SerializeObject(loginPayload), Encoding.UTF8, "application/json");
+            }), Encoding.UTF8, "application/json");
             var loginResp = await _client.PostAsync("/api/auth/login", loginContent);
             var loginBody = await loginResp.Content.ReadAsStringAsync();
             Assert.True(loginResp.IsSuccessStatusCode, $"Login failed: {loginBody}");
@@ -59,9 +58,7 @@ namespace LogiTrack.Tests
 
             // Authenticated request
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
-            // Use ResponseHeadersRead for efficiency if only status is needed
-            var ordersResp = await _client.GetAsync("/api/orders", HttpCompletionOption.ResponseHeadersRead);
+            var ordersResp = await _client.GetAsync("/api/orders");
             Assert.NotEqual(System.Net.HttpStatusCode.Unauthorized, ordersResp.StatusCode);
         }
     }

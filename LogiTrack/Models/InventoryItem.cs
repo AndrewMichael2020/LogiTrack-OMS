@@ -7,6 +7,13 @@ namespace LogiTrack.Models
     {
         [Key]
         public int ItemId { get; set; }
+        // Add property alias for test compatibility
+        [NotMapped]
+        public int Id
+        {
+            get => ItemId;
+            set => ItemId = value;
+        }
         [Required]
         public string Name { get; set; } = string.Empty;
         public int Quantity { get; set; }
