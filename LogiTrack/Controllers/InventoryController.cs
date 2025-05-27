@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using LogiTrack.Models;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ namespace LogiTrack.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize] // Protect all endpoints by default
     public class InventoryController : ControllerBase
     {
         private readonly LogiTrackContext _context;
@@ -34,6 +36,7 @@ namespace LogiTrack.Controllers
 
         // DELETE: /api/inventory/{id}
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Manager")]
         public IActionResult Delete(int id)
         {
             var item = _context.InventoryItems.Find(id);

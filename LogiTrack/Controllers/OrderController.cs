@@ -3,11 +3,13 @@ using LogiTrack.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LogiTrack.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize] // Protect all endpoints by default
     public class OrderController : ControllerBase
     {
         private readonly LogiTrackContext _context;
@@ -92,6 +94,7 @@ namespace LogiTrack.Controllers
 
         // DELETE: /api/orders/{id}
         [HttpDelete("{id:int}")]
+        [Authorize(Roles = "Manager")]
         public async Task<IActionResult> Delete(int id)
         {
             var order = await _context.Orders.Include(o => o.Items).FirstOrDefaultAsync(o => o.OrderId == id);
