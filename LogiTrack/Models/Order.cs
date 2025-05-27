@@ -11,7 +11,7 @@ namespace LogiTrack.Models
         [Key]
         public int OrderId { get; set; }
         [Required]
-        public string CustomerName { get; set; }
+        public string CustomerName { get; set; } = string.Empty;
         public DateTime DatePlaced { get; set; }
 
         // EF Core: One-to-many relationship

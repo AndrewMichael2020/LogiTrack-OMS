@@ -8,12 +8,13 @@ namespace LogiTrack.Models
         [Key]
         public int ItemId { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public int Quantity { get; set; }
-        public string Location { get; set; }
+        public string Location { get; set; } = string.Empty;
 
         // EF Core: Foreign key and navigation property for one-to-many
         public int? OrderId { get; set; }
+        [ForeignKey("OrderId")]
         public Order? Order { get; set; }
 
         public void DisplayInfo()

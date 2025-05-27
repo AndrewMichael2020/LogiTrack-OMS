@@ -119,3 +119,8 @@
 /workspaces/codespaces-blank/LogiTrack/obj/Debug/net8.0/LogiTrack.pdb
 /workspaces/codespaces-blank/LogiTrack/obj/Debug/net8.0/LogiTrack.genruntimeconfig.cache
 /workspaces/codespaces-blank/LogiTrack/obj/Debug/net8.0/ref/LogiTrack.dll
+/workspaces/codespaces-blank/LogiTrack/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/workspaces/codespaces-blank/LogiTrack/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/workspaces/codespaces-blank/LogiTrack/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/workspaces/codespaces-blank/LogiTrack/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/workspaces/codespaces-blank/LogiTrack/obj/Debug/net8.0/LogiTrack.MvcApplicationPartsAssemblyInfo.cs

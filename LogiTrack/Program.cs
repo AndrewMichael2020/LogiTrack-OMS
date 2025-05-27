@@ -1,52 +1,27 @@
 using LogiTrack.Models;
+using Microsoft.EntityFrameworkCore;
 
-// Seed the database with a test inventory item if none exist
-using (var context = new LogiTrackContext())
-{
-    // Add test inventory item if none exist
-    if (!context.InventoryItems.Any())
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
     {
-        var item = new InventoryItem
-        {
-            Name = "Pallet Jack",
-            Quantity = 12,
-            Location = "Warehouse A"
-        };
-        context.InventoryItems.Add(item);
-        context.SaveChanges();
-    }
+        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+        options.JsonSerializerOptions.PropertyNameCaseInsensitive = true; // Allow case-insensitive property names
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles; // Prevent object cycle errors
+    });
+builder.Services.AddEndpointsApiExplorer();
+// Ensure Swashbuckle.AspNetCore is installed:
+builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<LogiTrackContext>();
 
-    // Print all inventory items
-    foreach (var invItem in context.InventoryItems)
-    {
-        invItem.DisplayInfo();
-    }
-}
+var app = builder.Build();
 
-// Test block for InventoryItem
-var testItem = new InventoryItem
-{
-    ItemId = 1,
-    Name = "Pallet Jack",
-    Quantity = 12,
-    Location = "Warehouse A"
-};
-testItem.DisplayInfo();
+// Configure the HTTP request pipeline.
+app.UseSwagger();
+app.UseSwaggerUI();
 
-// Test block for Order
-var order = new Order
-{
-    OrderId = 1001,
-    CustomerName = "Samir",
-    DatePlaced = new DateTime(2025, 4, 5)
-};
-order.AddItem(testItem);
-order.AddItem(new InventoryItem
-{
-    ItemId = 2,
-    Name = "Hand Truck",
-    Quantity = 5,
-    Location = "Warehouse B"
-});
-order.RemoveItem(2);
-Console.WriteLine(order.GetOrderSummary());
+app.UseAuthorization();
+app.MapControllers();
+app.Run();

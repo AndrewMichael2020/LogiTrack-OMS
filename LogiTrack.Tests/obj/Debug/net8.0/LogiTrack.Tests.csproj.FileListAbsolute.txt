@@ -197,3 +197,17 @@
 /workspaces/codespaces-blank/LogiTrack.Tests/obj/Debug/net8.0/LogiTrack.Tests.pdb
 /workspaces/codespaces-blank/LogiTrack.Tests/obj/Debug/net8.0/LogiTrack.Tests.genruntimeconfig.cache
 /workspaces/codespaces-blank/LogiTrack.Tests/obj/Debug/net8.0/ref/LogiTrack.Tests.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.InMemory.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/Microsoft.Extensions.Caching.Abstractions.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/Microsoft.Extensions.Logging.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/workspaces/codespaces-blank/LogiTrack.Tests/bin/Debug/net8.0/System.Diagnostics.DiagnosticSource.dll
