@@ -17,21 +17,21 @@ using (var context = new LogiTrackContext())
     }
 
     // Print all inventory items
-    foreach (var item in context.InventoryItems)
+    foreach (var invItem in context.InventoryItems)
     {
-        item.DisplayInfo();
+        invItem.DisplayInfo();
     }
 }
 
 // Test block for InventoryItem
-var item = new InventoryItem
+var testItem = new InventoryItem
 {
     ItemId = 1,
     Name = "Pallet Jack",
     Quantity = 12,
     Location = "Warehouse A"
 };
-item.DisplayInfo();
+testItem.DisplayInfo();
 
 // Test block for Order
 var order = new Order
@@ -40,7 +40,7 @@ var order = new Order
     CustomerName = "Samir",
     DatePlaced = new DateTime(2025, 4, 5)
 };
-order.AddItem(item);
+order.AddItem(testItem);
 order.AddItem(new InventoryItem
 {
     ItemId = 2,
