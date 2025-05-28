@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using DotNetEnv;
+using System.IO;
 
 // Add this at the top if you want to load .env variables automatically
 try
@@ -13,7 +14,11 @@ try
 }
 catch { /* Ignore if DotNetEnv is not installed or .env not found */ }
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    ContentRootPath = Directory.GetCurrentDirectory(), // This works in all environments
+    Args = args
+});
 
 // Add services to the container.
 builder.Services.AddControllers()
