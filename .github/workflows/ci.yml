@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Set test environment variables
+        run: |
+          echo "Jwt__Key=supersecretkey1234supersecretkey1234supersecretkey1234supersecretkey1234" >> $GITHUB_ENV
+          echo "Jwt__Issuer=logitrack" >> $GITHUB_ENV
+          echo "Jwt__Audience=logitrack" >> $GITHUB_ENV
+          echo "USE_INMEMORY_DB=1" >> $GITHUB_ENV
+
+      - name: Run tests
+        run: dotnet test --no-build --verbosity normal
