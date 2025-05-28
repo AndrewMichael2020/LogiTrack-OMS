@@ -14,9 +14,10 @@ try
 }
 catch { /* Ignore if DotNetEnv is not installed or .env not found */ }
 
+// Use current directory as content root for all environments
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
-    ContentRootPath = Directory.GetCurrentDirectory(), // This works in all environments
+    ContentRootPath = Directory.GetCurrentDirectory(),
     Args = args
 });
 
