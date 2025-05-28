@@ -81,12 +81,6 @@ This ensures your tests use the correct JWT key and configuration for authentica
 - Data annotations are used for primary keys and required fields.
 - The code is ready for extension with API endpoints, authentication, and further business logic.
 
-## Next Steps
-
-- Implement API controllers for inventory and orders.
-- Add authentication and authorization.
-- Optimize performance for large datasets.
-- Extend business logic as needed.
 
 ---
 
