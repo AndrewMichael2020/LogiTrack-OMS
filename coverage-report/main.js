@@ -213,18 +213,18 @@ var assemblies = [
   {
     "name": "LogiTrack",
     "classes": [
-      { "name": "LogiTrack.Controllers.AuthController", "rp": "LogiTrack_AuthController.html", "cl": 43, "ucl": 5, "cal": 48, "tl": 102, "cb": 17, "tb": 28, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "LogiTrack.Controllers.InventoryController", "rp": "LogiTrack_InventoryController.html", "cl": 56, "ucl": 7, "cal": 63, "tl": 120, "cb": 6, "tb": 10, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "LogiTrack.Controllers.AuthController", "rp": "LogiTrack_AuthController.html", "cl": 44, "ucl": 4, "cal": 48, "tl": 102, "cb": 20, "tb": 28, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "LogiTrack.Controllers.InventoryController", "rp": "LogiTrack_InventoryController.html", "cl": 55, "ucl": 8, "cal": 63, "tl": 120, "cb": 5, "tb": 10, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "LogiTrack.Controllers.LoginModel", "rp": "LogiTrack_LoginModel.html", "cl": 2, "ucl": 0, "cal": 2, "tl": 102, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "LogiTrack.Controllers.OrderController", "rp": "LogiTrack_OrderController.html", "cl": 49, "ucl": 12, "cal": 61, "tl": 113, "cb": 12, "tb": 14, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "LogiTrack.Controllers.RegisterModel", "rp": "LogiTrack_RegisterModel.html", "cl": 3, "ucl": 0, "cal": 3, "tl": 102, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "LogiTrack.Migrations.LogiTrackContextModelSnapshot", "rp": "LogiTrack_LogiTrackContextModelSnapshot.html", "cl": 0, "ucl": 289, "cal": 289, "tl": 324, "cb": 0, "tb": 32, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "LogiTrack.Migrations.LogiTrackContextModelSnapshot", "rp": "LogiTrack_LogiTrackContextModelSnapshot.html", "cl": 289, "ucl": 0, "cal": 289, "tl": 324, "cb": 32, "tb": 32, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "LogiTrack.Migrations.UpdateModel", "rp": "LogiTrack_UpdateModel.html", "cl": 0, "ucl": 475, "cal": 475, "tl": 549, "cb": 0, "tb": 60, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "LogiTrack.Migrations.UpdateSchema", "rp": "LogiTrack_UpdateSchema.html", "cl": 0, "ucl": 103, "cal": 103, "tl": 149, "cb": 0, "tb": 16, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "LogiTrack.Models.InventoryItem", "rp": "LogiTrack_InventoryItem.html", "cl": 11, "ucl": 0, "cal": 11, "tl": 32, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "LogiTrack.Models.InventoryItem", "rp": "LogiTrack_InventoryItem.html", "cl": 9, "ucl": 2, "cal": 11, "tl": 32, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "LogiTrack.Models.LogiTrackContext", "rp": "LogiTrack_LogiTrackContext.html", "cl": 6, "ucl": 4, "cal": 10, "tl": 23, "cb": 1, "tb": 2, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "LogiTrack.Models.Order", "rp": "LogiTrack_Order.html", "cl": 20, "ucl": 0, "cal": 20, "tl": 44, "cb": 4, "tb": 4, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Program", "rp": "LogiTrack_Program.html", "cl": 49, "ucl": 6, "cal": 55, "tl": 87, "cb": 10, "tb": 16, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Program", "rp": "LogiTrack_Program.html", "cl": 50, "ucl": 5, "cal": 55, "tl": 87, "cb": 13, "tb": 16, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
   {
     "name": "LogiTrack.Tests",
@@ -232,12 +232,12 @@ var assemblies = [
       { "name": "InventoryControllerTests", "rp": "LogiTrack.Tests_InventoryControllerTests.html", "cl": 61, "ucl": 0, "cal": 61, "tl": 116, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "LogiTrack.Tests.AuthControllerTests", "rp": "LogiTrack.Tests_AuthControllerTests.html", "cl": 77, "ucl": 0, "cal": 77, "tl": 124, "cb": 5, "tb": 6, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "LogiTrack.Tests.CustomWebApplicationFactory<TStartup>", "rp": "LogiTrack.Tests_CustomWebApplicationFactory_TStartup_.html", "cl": 12, "ucl": 0, "cal": 12, "tl": 53, "cb": 2, "tb": 2, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "LogiTrack.Tests.CustomWebApplicationFactory<TStartup>", "rp": "LogiTrack.Tests_CustomWebApplicationFactory_TStartup_.html", "cl": 22, "ucl": 3, "cal": 25, "tl": 53, "cb": 6, "tb": 8, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "LogiTrack.Tests.CustomWebApplicationFactory<TStartup>", "rp": "LogiTrack.Tests_CustomWebApplicationFactory_TStartup_.html", "cl": 19, "ucl": 6, "cal": 25, "tl": 53, "cb": 5, "tb": 8, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "LogiTrack.Tests.InventoryItemTests", "rp": "LogiTrack.Tests_InventoryItemTests.html", "cl": 13, "ucl": 0, "cal": 13, "tl": 28, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "LogiTrack.Tests.OrderControllerAuthIntegrationTests", "rp": "LogiTrack.Tests_OrderControllerAuthIntegrationTests.html", "cl": 131, "ucl": 19, "cal": 150, "tl": 233, "cb": 20, "tb": 44, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "LogiTrack.Tests.OrderControllerAuthIntegrationTests", "rp": "LogiTrack.Tests_OrderControllerAuthIntegrationTests.html", "cl": 79, "ucl": 71, "cal": 150, "tl": 233, "cb": 1, "tb": 44, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "LogiTrack.Tests.OrderControllerTests", "rp": "LogiTrack.Tests_OrderControllerTests.html", "cl": 101, "ucl": 0, "cal": 101, "tl": 160, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "LogiTrack.Tests.OrderTests", "rp": "LogiTrack.Tests_OrderTests.html", "cl": 34, "ucl": 0, "cal": 34, "tl": 59, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "LogiTrack.Tests.WorkflowIntegrationTests", "rp": "LogiTrack.Tests_WorkflowIntegrationTests.html", "cl": 93, "ucl": 13, "cal": 106, "tl": 180, "cb": 19, "tb": 36, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "LogiTrack.Tests.WorkflowIntegrationTests", "rp": "LogiTrack.Tests_WorkflowIntegrationTests.html", "cl": 36, "ucl": 70, "cal": 106, "tl": 180, "cb": 3, "tb": 36, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
 ];
 
@@ -252,12 +252,6 @@ var riskHotspotMetrics = [
 
 var riskHotspots = [
   {
-    "assembly": "LogiTrack", "class": "LogiTrack.Migrations.LogiTrackContextModelSnapshot", "reportPath": "LogiTrack_LogiTrackContextModelSnapshot.html", "methodName": "BuildModel(Microsoft.EntityFrameworkCore.ModelBuilder)", "methodShortName": "BuildModel(...)", "fileIndex": 0, "line": 16,
-    "metrics": [
-      { "value": 1056, "exceeded": true },
-      { "value": 32, "exceeded": true },
-    ]},
-  {
     "assembly": "LogiTrack", "class": "LogiTrack.Migrations.UpdateModel", "reportPath": "LogiTrack_UpdateModel.html", "methodName": "BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)", "methodShortName": "BuildTargetModel(...)", "fileIndex": 1, "line": 19,
     "metrics": [
       { "value": 1056, "exceeded": true },
@@ -268,6 +262,18 @@ var riskHotspots = [
     "metrics": [
       { "value": 812, "exceeded": true },
       { "value": 28, "exceeded": true },
+    ]},
+  {
+    "assembly": "LogiTrack.Tests", "class": "LogiTrack.Tests.OrderControllerAuthIntegrationTests", "reportPath": "LogiTrack.Tests_OrderControllerAuthIntegrationTests.html", "methodName": "CreateOrder_And_Delete_AsManager_Succeeds()", "methodShortName": "CreateOrder_And_Delete_AsManager_Succeeds()", "fileIndex": 0, "line": 117,
+    "metrics": [
+      { "value": 497, "exceeded": true },
+      { "value": 24, "exceeded": true },
+    ]},
+  {
+    "assembly": "LogiTrack.Tests", "class": "LogiTrack.Tests.WorkflowIntegrationTests", "reportPath": "LogiTrack.Tests_WorkflowIntegrationTests.html", "methodName": "Inventory_And_Order_Creation_Workflow()", "methodShortName": "Inventory_And_Order_Creation_Workflow()", "fileIndex": 0, "line": 62,
+    "metrics": [
+      { "value": 437, "exceeded": true },
+      { "value": 22, "exceeded": true },
     ]},
   {
     "assembly": "LogiTrack", "class": "LogiTrack.Migrations.UpdateSchema", "reportPath": "LogiTrack_UpdateSchema.html", "methodName": "Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)", "methodShortName": "Up(...)", "fileIndex": 0, "line": 13,
@@ -282,21 +288,15 @@ var riskHotspots = [
       { "value": 8, "exceeded": false },
     ]},
   {
-    "assembly": "LogiTrack.Tests", "class": "LogiTrack.Tests.OrderControllerAuthIntegrationTests", "reportPath": "LogiTrack.Tests_OrderControllerAuthIntegrationTests.html", "methodName": "CreateOrder_And_Delete_AsManager_Succeeds()", "methodShortName": "CreateOrder_And_Delete_AsManager_Succeeds()", "fileIndex": 0, "line": 117,
+    "assembly": "LogiTrack", "class": "LogiTrack.Migrations.LogiTrackContextModelSnapshot", "reportPath": "LogiTrack_LogiTrackContextModelSnapshot.html", "methodName": "BuildModel(Microsoft.EntityFrameworkCore.ModelBuilder)", "methodShortName": "BuildModel(...)", "fileIndex": 0, "line": 16,
     "metrics": [
-      { "value": 62, "exceeded": true },
-      { "value": 24, "exceeded": true },
-    ]},
-  {
-    "assembly": "LogiTrack.Tests", "class": "LogiTrack.Tests.WorkflowIntegrationTests", "reportPath": "LogiTrack.Tests_WorkflowIntegrationTests.html", "methodName": "Inventory_And_Order_Creation_Workflow()", "methodShortName": "Inventory_And_Order_Creation_Workflow()", "fileIndex": 0, "line": 62,
-    "metrics": [
-      { "value": 39, "exceeded": true },
-      { "value": 22, "exceeded": true },
+      { "value": 32, "exceeded": true },
+      { "value": 32, "exceeded": true },
     ]},
   {
     "assembly": "LogiTrack", "class": "LogiTrack.Controllers.AuthController", "reportPath": "LogiTrack_AuthController.html", "methodName": "Register()", "methodShortName": "Register()", "fileIndex": 0, "line": 32,
     "metrics": [
-      { "value": 24, "exceeded": false },
+      { "value": 21, "exceeded": false },
       { "value": 18, "exceeded": true },
     ]},
 ];

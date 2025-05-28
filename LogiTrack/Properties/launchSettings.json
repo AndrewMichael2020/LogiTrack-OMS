@@ -1,6 +1,16 @@
-"environmentVariables": {
-  "USE_INMEMORY_DB": "1",
-  "Jwt__Key": "logitrack_super_secret_key!", // At least 16 characters, strong enough for dev/test
-  "Jwt__Issuer": "logitrack",
-  "Jwt__Audience": "logitrack"
+{
+  "profiles": {
+    "LogiTrack": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "environmentVariables": {
+        "USE_INMEMORY_DB": "1",
+        "Jwt__Key": "supersecretkey1234supersecretkey1234supersecretkey1234supersecretkey1234",
+        "Jwt__Issuer": "logitrack",
+        "Jwt__Audience": "logitrack"
+      }
+    }
+  }
 }
